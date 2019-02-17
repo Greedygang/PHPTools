@@ -7,6 +7,7 @@
  *      则"Content-Type"头被自动设置成"multipart/form-data"，发送
  *      文件时，CURLOPT_POSTFIELDS必须为数组
  * (3). 发送文件时，文件名必须是文件完整路径，且需要使用"@"前缀
+ * (4). 如果使用代理proxy，则需要设置代理相关的参数
  * 
  */
 class CurlTool
