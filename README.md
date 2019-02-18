@@ -4,3 +4,5 @@
 + CurlTool：将常用的curl相关的方法进行封装，模拟GET和POST请求等
 + ServerTool：服务器相关的工具类
 + LogTool：封装的日志类，定义了debug、warn、error、info 4种日志级别
++ Configurator：配置文件获取类
++ DBConnection：数据库连接类

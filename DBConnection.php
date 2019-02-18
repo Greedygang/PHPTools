@@ -7,7 +7,7 @@ class DBConnection {
 
     public function __construct() {
         // 获取数据库配置项
-        $this->configure = \Configurator::getSubConfig('DB', 'default');
+        $this->configure = \Configurator::getConfig('DB', 'default');
     }
 
     public function getConnection() {
