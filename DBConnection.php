@@ -3,14 +3,15 @@
  * 数据库连接类
  */
 class DBConnection {
-    private static $config;
+    private $configure;
 
     public function __construct() {
         // 获取数据库配置项
-        self::$config = \Configurator::getConfig('DB', 'default');
+        $this->configure = \Configurator::getSubConfig('DB', 'default');
     }
 
-    public static function getConnection() {
+    public function getConnection() {
+        $config = $this->configure;
         // Data Source Name
         $dsn = "mysql:host={$config['host']}; port={$config['port']}; dbname={$config['dbname']}; charset={$config['charset']}";
         $options = array(

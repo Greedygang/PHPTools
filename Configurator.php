@@ -13,7 +13,8 @@ class Configurator
     // 缓存子配置信息
     private static $subconf = [];
 
-    public function __construct() {
+    public static function loadFile() {
+        // TODO + 使用实际的配置文件路径
         $path = dirname(__FILE__).'/configure.inc.php';
         // 判断配置文件是否存在
         if (is_file($path)) {
@@ -32,6 +33,7 @@ class Configurator
         if (isset(self::$conf[$key])) {
             return self::$conf[$key];
         } else {
+            self::loadFile();
             if (isset(self::$config[$key])) {
                 self::$conf[$key] = self::$config[$key];
                 return self::$config[$key];
@@ -50,6 +52,7 @@ class Configurator
         if (isset(self::$subconf[$key][$subkey])) {
             return self::$subconf[$key][$subkey];
         } else {
+            self::loadFile();
             if (isset(self::$config[$key][$subkey])) {
                 self::$subconf[$key][$subconf] = self::$config[$key][$subkey];
                 return self::$config[$key][$subkey];

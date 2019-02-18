@@ -13,19 +13,15 @@ class LogTool
     const LOG_LEVEL_ERROR = 2;
     const LOG_LEVEL_INFO  = 3;
 
-    static $log_level = array(
+    private static $log_level = array(
         LOG_LEVEL_DEBUG => 'debug',
         LOG_LEVEL_WARN  => 'warn',
         LOG_LEVEL_ERROR => 'error',
         LOG_LEVEL_INFO  => 'info',
     );
 
-    private $log_path;
-
-    public function __construct() {
-        // TODO + 使用时修改日志目录
-        $log_path = './log_path';
-    }
+    // TODO + 使用时修改日志目录
+    private static $log_path = './log_path';
 
     public static function debugLog($name, $message) {
         self::writeLog(LOG_LEVEL_DEBUG, $name, $message);
